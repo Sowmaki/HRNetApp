@@ -48,10 +48,10 @@ export const EmployeeListPage = () => {
     <main className="employeeList">
       <Navbar />
 
-      <h2 className="employeeList__title">Current Employees</h2>
+      <h2 className="title">Current Employees</h2>
 
       <header className="employeeList__header">
-        <div className="employeeList__header__seclectLength">
+        <div className="employeeList__header__selectLength">
           <span>Show </span>
           <select name="listLength" id="listLength" onChange={handleChangeListLength}>
             <option value={10} defaultValue>10</option>
@@ -73,9 +73,9 @@ export const EmployeeListPage = () => {
         <p className="employeeList__footer__infos">Show {employees.length ? 1 : 0} to {listLength} of {employees.length} entries</p>
         {/* Pagination */}
         <div className="employeeList__footer__pagination">
-          <button onClick={goToPreviousPage} disabled={currentPage === 1}>Previous</button>
+          <button className='button' onClick={goToPreviousPage} disabled={currentPage === 1}>Previous</button>
           <span> Page {currentPage} of {totalPages} </span>
-          <button onClick={goToNextPage} disabled={currentPage === totalPages}>Next</button>
+          <button className="button" onClick={goToNextPage} disabled={currentPage === totalPages}>Next</button>
         </div>
       </footer>
     </main>

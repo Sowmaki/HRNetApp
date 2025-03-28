@@ -1,0 +1,39 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: rgb(255, 209, 5);
+  padding: 30px;
+  box-sizing: border-box;
+  position: fixed;
+  left: 25%;
+  top: 40%;
+  width: 50vw;
+
+  &__title {
+    color: white;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+
+    & button {
+      width: 10vw;
+      background-color: white;
+      color: black;
+    }
+  }
+}

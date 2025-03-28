@@ -6,7 +6,7 @@ export const CreateEmployee = () => {
   return (
     <main className='createEmployee'>
       <Navbar />
-      <h2 className="createEmployee__title">Create Employee</h2>
+      <h2 className="title">Create Employee</h2>
       <CreateEmployeeForm />
     </main >
   )

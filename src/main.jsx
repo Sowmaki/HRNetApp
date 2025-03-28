@@ -1,6 +1,7 @@
 import { } from "module";
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from "react-router";
+import "./App.scss";
 import { EmployeesProvider } from "./context/EmployeesContext.jsx";
 import { CreateEmployee } from "./pages/CreateEmployeePage/CreateEmployeePage.jsx";
 import { EmployeeListPage } from "./pages/EmployeeListPage/EmployeeListPage.jsx";

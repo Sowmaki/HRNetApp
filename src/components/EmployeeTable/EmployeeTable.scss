@@ -1,0 +1,44 @@
+.employeeTable {
+  border-collapse: collapse;
+
+  &__row--header {
+    font-size: 0.8rem;
+  }
+
+  &__row {
+    font-size: 0.6rem;
+    text-align: left;
+  }
+
+  &__cell {
+    border-right: 2px solid rgb(255, 209, 5);
+    border-left: 2px solid rgb(255, 209, 5);
+    padding: 0.5em;
+  }
+
+  &__header-cell {
+    border-right: 2px solid rgb(255, 209, 5);
+    border-left: 2px solid rgb(255, 209, 5);
+
+    &__title {
+      font-size: 0.875rem;
+    }
+
+    &__icon {
+      transition: transform 0.3s ease;
+    }
+
+  }
+}
+
+/* Style pour l'en-tête actif */
+.rotated {
+  transform: rotate(180deg);
+  cursor: pointer;
+}
+
+/* Style pour la colonne active */
+.employeeTable__cell.active {
+  background-color: rgb(255, 209, 5);
+  font-weight: bold;
+}

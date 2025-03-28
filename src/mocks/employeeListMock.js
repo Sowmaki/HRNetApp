@@ -2,8 +2,8 @@ export const employeeListMock = [
   {
     firstName: "Bateau",
     lastName: "Surlo",
-    birthDate: "1999-10-09",
-    startDate: "2025-10-10",
+    birthDate: "10/09/1999",
+    startDate: "10/10/2025",
     department: "Sales",
     address: {
       street: "123 Ocean Drive",
@@ -15,8 +15,8 @@ export const employeeListMock = [
   {
     firstName: "Lanar",
     lastName: "Chiste",
-    birthDate: "1992-03-05",
-    startDate: "2020-11-12",
+    birthDate: "05/03/1992",
+    startDate: "12/11/2020",
     department: "Marketing",
     address: {
       street: "456 Potato Lane",
@@ -28,8 +28,8 @@ export const employeeListMock = [
   {
     firstName: "Gloubi",
     lastName: "Boulga",
-    birthDate: "1985-07-12",
-    startDate: "2022-06-07",
+    birthDate: "12/07/1985",
+    startDate: "07/06/2022",
     department: "IT",
     address: {
       street: "789 Flame St",
@@ -41,8 +41,8 @@ export const employeeListMock = [
   {
     firstName: "Jean",
     lastName: "Bonbeurre",
-    birthDate: "1988-11-12",
-    startDate: "2018-04-09",
+    birthDate: "12/11/1988",
+    startDate: "09/04/2018",
     department: "Finance",
     address: {
       street: "321 Butter Road",
@@ -54,8 +54,8 @@ export const employeeListMock = [
   {
     firstName: "Tonton",
     lastName: "Flingueur",
-    birthDate: "1990-04-03",
-    startDate: "2021-09-11",
+    birthDate: "03/04/1990",
+    startDate: "11/09/2021",
     department: "HR",
     address: {
       street: "654 Green Blvd",
@@ -67,8 +67,8 @@ export const employeeListMock = [
   {
     firstName: "Denis",
     lastName: "Brobro",
-    birthDate: "1987-02-01",
-    startDate: "2019-05-20",
+    birthDate: "01/02/1987",
+    startDate: "05/20/2019",
     department: "Operations",
     address: {
       street: "852 Cheese St",
@@ -80,8 +80,8 @@ export const employeeListMock = [
   {
     firstName: "Jean",
     lastName: "Chaine",
-    birthDate: "1993-08-11",
-    startDate: "2022-12-25",
+    birthDate: "11/08/1993",
+    startDate: "12/25/2022",
     department: "Sales",
     address: {
       street: "963 Royal Ave",
@@ -93,8 +93,8 @@ export const employeeListMock = [
   {
     firstName: "Paul",
     lastName: "Ochon",
-    birthDate: "1989-10-05",
-    startDate: "2023-10-08",
+    birthDate: "05/14/1989",
+    startDate: "08/10/2023",
     department: "Logistics",
     address: {
       street: "753 Piggy Lane",
@@ -106,8 +106,8 @@ export const employeeListMock = [
   {
     firstName: "Justin",
     lastName: "Bridou",
-    birthDate: "1991-09-09",
-    startDate: "2020-06-14",
+    birthDate: "09/09/1991",
+    startDate: "06/14/2020",
     department: "Legal",
     address: {
       street: "159 Meat St",
@@ -119,8 +119,8 @@ export const employeeListMock = [
   {
     firstName: "Alice",
     lastName: "Denice",
-    birthDate: "1995-12-01",
-    startDate: "2024-10-30",
+    birthDate: "01/18/1995",
+    startDate: "10/30/2024",
     department: "Support",
     address: {
       street: "357 Crisp Road",
@@ -132,8 +132,8 @@ export const employeeListMock = [
   {
     firstName: "Coco",
     lastName: "Loco",
-    birthDate: "1986-07-27",
-    startDate: "2018-05-09",
+    birthDate: "07/27/1986",
+    startDate: "09/05/2018",
     department: "R&D",
     address: {
       street: "468 Bubble St",
@@ -145,8 +145,8 @@ export const employeeListMock = [
   {
     firstName: "Sarah",
     lastName: "Croche",
-    birthDate: "1988-10-01",
-    startDate: "2023-01-11",
+    birthDate: "01/30/1988",
+    startDate: "11/28/2023",
     department: "IT",
     address: {
       street: "864 Bacon Ave",
@@ -158,8 +158,8 @@ export const employeeListMock = [
   {
     firstName: "James",
     lastName: "Dumb",
-    birthDate: "1994-07-12",
-    startDate: "2022-01-07",
+    birthDate: "12/07/1994",
+    startDate: "07/21/2022",
     department: "PR",
     address: {
       street: "741 Honey Street",
@@ -171,8 +171,8 @@ export const employeeListMock = [
   {
     firstName: "Tee",
     lastName: "Pee",
-    birthDate: "1980-10-10",
-    startDate: "2019-11-02",
+    birthDate: "10/16/1980",
+    startDate: "02/13/2019",
     department: "Security",
     address: {
       street: "159 Liquorice Ave",
@@ -184,8 +184,8 @@ export const employeeListMock = [
   {
     firstName: "Yuyao",
     lastName: "Lung",
-    birthDate: "1997-03-11",
-    startDate: "2025-06-04",
+    birthDate: "11/20/1997",
+    startDate: "04/06/2025",
     department: "Management",
     address: {
       street: "852 Grain Blvd",
