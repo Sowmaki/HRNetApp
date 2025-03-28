@@ -79,7 +79,6 @@ export const CreateEmployeeForm = () => {
         <label htmlFor="last-name">Last Name</label>
         <input type="text" id="last-name" name="lastName" value={formData.lastName} onChange={handleChange} required />
 
-        {/* Modifier les formats de date en MM/JJ/AAAA */}
         <label htmlFor="date-of-birth">Date of Birth</label>
         <input id="date-of-birth" type="date" name="birthDate" value={formData.birthDate} onChange={handleChange} required />
 
@@ -98,18 +97,17 @@ export const CreateEmployeeForm = () => {
           <label htmlFor="state">State</label>
           <select className="employeeForm__select" name="state" id="state" onChange={handleChange} required>
             {/* On mappe sur la liste des Etats et creer pour chacun balise option */}
-            <option disabled selected>Select state</option>
+            <option disabled defaultValue>Select state</option>
             {states.map((state, index) => <option key={`${state}${index}`}>{state.name}</option>)}
           </select>
 
           <label htmlFor="zip-code">Zip Code</label>
-          <input id="zip-code" type="number" pattern="\d{5}" name="zipCode" value={formData.adress.zipCode} onChange={handleChange} required />
-          {/* Ajout limite de chiffres */}
+          <input id="zip-code" type="text" minLength={5} maxLength={5} name="zipCode" value={formData.adress.zipCode} onChange={handleChange} required />
         </fieldset>
         <label htmlFor="department">Department</label>
         <select className="employeeForm__select" name="department" id="department" onChange={handleChange}>
           {/* On mappe sur les departements pour creer chaque option */}
-          <option disabled selected>Select department</option>
+          <option disabled defaultValue>Select department</option>
           {departments.map((department, index) => <option key={`${department}${index}`}>{department}</option>)}
         </select>
         <button type="submit" className="employeeForm__validate-btn">Save</button>

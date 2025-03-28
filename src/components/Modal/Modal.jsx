@@ -3,7 +3,7 @@ import "./Modal.scss";
 
 export const Modal = ({ setOpenModal }) => {
   return (
-    <div id="confirmation" class="modal">
+    <div id="confirmation" className="modal">
       <h2 className="modal__title">Employee Created!</h2>
       <div className="modal__buttons">
         <button className="modal__buttons__closeBtn" onClick={() => setOpenModal(false)}>OK</button>
