@@ -1,6 +1,5 @@
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
+import faChevronDown from "../../assets/icons/fachevrondown.svg";
 import { states } from "../../data/states";
 import './EmployeeTable.scss';
 
@@ -25,11 +24,11 @@ export const EmployeeTable = ({ list }) => {
                         {keys?.map((key, index) =>
                             <th className='employeeTable__header-cell' key={`${key}${index}`}>
                                 <h3 className='employeeTable__header-cell__title'>{key.toUpperCase()}</h3>
-                                <FontAwesomeIcon
+                                <img
                                     className={`employeeTable__header-cell__icon ${activeColumn === index ? "rotated" : ""}`}
-                                    icon={faChevronDown}
                                     onClick={() => setActiveColumn(activeColumn === index ? null : index)}
-                                />
+                                    src={faChevronDown}
+                                ></img>
                             </th>)}
                     </tr>
                 </thead>

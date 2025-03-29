@@ -52,8 +52,8 @@ export const EmployeeListPage = () => {
 
       <header className="employeeList__header">
         <div className="employeeList__header__selectLength">
-          <span>Show </span>
-          <select name="listLength" id="listLength" onChange={handleChangeListLength}>
+          <label htmlFor="select-list-length">Show </label>
+          <select name="listLength" id="select-list-length" onChange={handleChangeListLength}>
             <option value={10} defaultValue>10</option>
             <option value={25}>25</option>
             <option value={50}>50</option>
@@ -62,8 +62,8 @@ export const EmployeeListPage = () => {
           <span> entries</span>
         </div>
         <div className="employeeList__header__search">
-          <span>Search: </span>
-          <input type="text" name="search" id="searchEmployeeInput" value={query} onChange={handleChangeQuery} />
+          <label htmlFor="search-input">Search: </label>
+          <input type="text" name="search" id="search-input" value={query} onChange={handleChangeQuery} />
         </div>
       </header>
 
