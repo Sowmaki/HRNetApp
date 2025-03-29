@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { employeeListMock } from "../mocks/employeeListMock";
+import employeeListMock from "../mocks/employees_mock.json";
 
 // Création du contexte
 export const EmployeesContext = createContext();

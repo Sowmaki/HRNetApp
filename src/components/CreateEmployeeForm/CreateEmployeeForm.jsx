@@ -15,76 +15,62 @@ export const CreateEmployeeForm = () => {
   const [selectedState, setSelectedState] = useState('');
   const [selectedDepartment, setSelectedDepartment] = useState('');
   const [startDate, setStartDate] = useState(null)
-  const [birthDate, setBirthDate] = useState(null)
+  const [dateOfBirth, setBirthDate] = useState(null)
 
   const fullStates = states.map((state) => state.name)
 
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-    birthDate: "",
+    dateOfBirth: "",
     startDate: "",
     department: "",
-    address: {
-      street: "",
-      city: "",
-      state: "",
-      zipCode: 0,
-    },
+    street: "",
+    city: "",
+    state: "",
+    zipCode: 0,
   });
 
+  // Gestion des champs du formulaire
   const handleChange = (e) => {
-    const { name, value } = e.target
+    const { name, value } = e.target;
 
-    if (["street", "city", "zipCode"].includes(name)) {
-      setFormData((prevData) => ({
-        ...prevData,
-        address: {
-          ...prevData.address,
-          [name]: value, // Mise à jour correcte des champs d'addresse
-        },
-      }));
-    } else {
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: value,
-      }));
-    }
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
-  // Mise à jour de `birthDate`, `startDate`, et `department` directement
+  // Mise à jour des champs liés à des states
   useEffect(() => {
     setFormData((prevData) => ({
       ...prevData,
-      birthDate: birthDate, // Assigne la date directement
+      dateOfBirth: dateOfBirth,
       startDate: startDate,
       department: selectedDepartment,
-      address: {
-        ...prevData.address,
-        state: selectedState, // Met à jour state correctement
-      },
+      state: selectedState,
     }));
-  }, [birthDate, startDate, selectedDepartment, selectedState]); // Exécute la mise à jour à chaque changement
+  }, [dateOfBirth, startDate, selectedDepartment, selectedState]);
 
+  // Soumission du formulaire
   const handleSubmit = (e) => {
     e.preventDefault();
-    addEmployee(formData); // Ajoute l'employé au contexte
+    addEmployee(formData);
 
+    // Réinitialisation du formulaire après soumission
     setFormData({
       firstName: "",
       lastName: "",
-      birthDate: "",
-      startDate: { startDate },
+      dateOfBirth: "",
+      startDate: "",
       department: "",
-      address: {
-        street: "",
-        city: "",
-        state: "",
-        zipCode: 0,
-      },
+      street: "",
+      city: "",
+      state: "",
+      zipCode: "",
     });
 
-    setOpenModal(true)
+    setOpenModal(true);
   };
 
   const formatDate = (date) => {
@@ -111,7 +97,7 @@ export const CreateEmployeeForm = () => {
         <label htmlFor="date-of-birth">Date of Birth</label>
         <DatePicker
           id="date-of-birth"
-          selected={birthDate}
+          selected={dateOfBirth}
           onChange={(date) => setBirthDate(formatDate(date))}
           dateFormat="MM/dd/yyyy"
           showYearDropdown
@@ -132,16 +118,16 @@ export const CreateEmployeeForm = () => {
           <legend>Address</legend>
 
           <label htmlFor="street">Street</label>
-          <input id="street" type="text" name="street" value={formData.address.street} onChange={handleChange} required />
+          <input id="street" type="text" name="street" value={formData.street} onChange={handleChange} required />
 
           <label htmlFor="city">City</label>
-          <input id="city" type="text" name="city" value={formData.address.city} onChange={handleChange} required />
+          <input id="city" type="text" name="city" value={formData.city} onChange={handleChange} required />
 
           <label htmlFor="state">State</label>
           <DropdownMenu options={fullStates} onSelect={setSelectedState} />
 
           <label htmlFor="zip-code">Zip Code</label>
-          <input id="zip-code" type="text" minLength={5} maxLength={5} name="zipCode" value={formData.address.zipCode} onChange={handleChange} required />
+          <input id="zip-code" type="text" minLength={5} maxLength={5} name="zipCode" value={formData.zipCode} onChange={handleChange} required />
         </fieldset>
         <label htmlFor="department">Department</label>
         <DropdownMenu options={departments} onSelect={setSelectedDepartment} />
