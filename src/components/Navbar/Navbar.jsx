@@ -11,18 +11,18 @@ export const Navbar = () => {
       <h1 className="navbar__title">HRNet</h1>
       <div className="navbar__items">
         <div className="navbar__item" data-tooltip="Create Employee">
-          <Link to='/employee-list' aria-label="go to employee list">
+          <Link to='/' aria-label="go to employee list">
             <img
               src={faListDots}
-              className={`navbar__item__cta ${location.pathname === "/employee-list" && "active"}`}
+              className={`navbar__item__cta ${location.pathname === "/" && "active"}`}
             />
           </Link>
         </div>
         <div className="navbar__item" data-tooltip="Employees List">
-          <Link to='/create-employee' aria-label="go to create employee" >
+          <Link to='/add' aria-label="go to create employee page" >
             <img
               src={faAdd}
-              className={`navbar__item__cta ${location.pathname === "/create-employee" && "active"}`}
+              className={`navbar__item__cta ${location.pathname === "/add" && "active"}`}
             />
           </Link>
         </div>

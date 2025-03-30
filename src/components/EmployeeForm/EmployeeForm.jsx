@@ -1,23 +1,22 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { EmployeesContext } from "../../context/EmployeesContext";
+import { useDispatch } from "react-redux";
 import { departments } from "../../data/departments";
 import { states } from "../../data/states";
 import { DropdownMenu } from "../DropdownMenu/DropdownMenu";
 import { Modal } from "../Modal/Modal";
-import "./CreateEmployeeForm.scss";
+import "./EmployeeForm.scss";
 
-export const CreateEmployeeForm = () => {
+export const EmployeeForm = () => {
+  const dispatch = useDispatch();
+  const [openModal, setOpenModal] = useState(false);
+  const [selectedState, setSelectedState] = useState("");
+  const [selectedDepartment, setSelectedDepartment] = useState("");
+  const [startDate, setStartDate] = useState(null);
+  const [dateOfBirth, setDateOfBirth] = useState(null);
 
-  const { addEmployee } = useContext(EmployeesContext);
-  const [openModal, setOpenModal] = useState(false)
-  const [selectedState, setSelectedState] = useState('');
-  const [selectedDepartment, setSelectedDepartment] = useState('');
-  const [startDate, setStartDate] = useState(null)
-  const [dateOfBirth, setBirthDate] = useState(null)
-
-  const fullStates = states.map((state) => state.name)
+  const fullStates = states.map((state) => state.name);
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -28,13 +27,12 @@ export const CreateEmployeeForm = () => {
     street: "",
     city: "",
     state: "",
-    zipCode: 0,
+    zipCode: "",
   });
 
   // Gestion des champs du formulaire
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
@@ -55,9 +53,10 @@ export const CreateEmployeeForm = () => {
   // Soumission du formulaire
   const handleSubmit = (e) => {
     e.preventDefault();
-    addEmployee(formData);
+    dispatch(addEmployee(formData));
+    setOpenModal(true);
 
-    // Réinitialisation du formulaire après soumission
+    // Réinitialisation du formulaire
     setFormData({
       firstName: "",
       lastName: "",
@@ -69,8 +68,6 @@ export const CreateEmployeeForm = () => {
       state: "",
       zipCode: "",
     });
-
-    setOpenModal(true);
   };
 
   const formatDate = (date) => {
@@ -98,7 +95,7 @@ export const CreateEmployeeForm = () => {
         <DatePicker
           id="date-of-birth"
           selected={dateOfBirth}
-          onChange={(date) => setBirthDate(formatDate(date))}
+          onChange={(date) => setDateOfBirth(formatDate(date))}
           dateFormat="MM/dd/yyyy"
           showYearDropdown
           scrollableYearDropdown
@@ -127,7 +124,7 @@ export const CreateEmployeeForm = () => {
           <DropdownMenu options={fullStates} onSelect={setSelectedState} />
 
           <label htmlFor="zip-code">Zip Code</label>
-          <input id="zip-code" type="text" minLength={5} maxLength={5} name="zipCode" value={formData.zipCode} onChange={handleChange} required />
+          <input id="zip-code" type="number" name="zipCode" value={formData.zipCode} onChange={handleChange} required />
         </fieldset>
         <label htmlFor="department">Department</label>
         <DropdownMenu options={departments} onSelect={setSelectedDepartment} />
