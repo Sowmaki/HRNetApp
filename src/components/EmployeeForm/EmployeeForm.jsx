@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useDispatch } from "react-redux";
 import { departments } from "../../data/departments";
 import { states } from "../../data/states";
+import { addEmployee } from "../../redux/employeesSlice";
+import { DateInput } from "../DateInput/DateInput";
 import { DropdownMenu } from "../DropdownMenu/DropdownMenu";
 import { Modal } from "../Modal/Modal";
 import "./EmployeeForm.scss";
@@ -92,23 +93,17 @@ export const EmployeeForm = () => {
         <input type="text" id="last-name" name="lastName" value={formData.lastName} onChange={handleChange} required />
 
         <label htmlFor="date-of-birth">Date of Birth</label>
-        <DatePicker
+        <DateInput
           id="date-of-birth"
           selected={dateOfBirth}
           onChange={(date) => setDateOfBirth(formatDate(date))}
-          dateFormat="MM/dd/yyyy"
-          showYearDropdown
-          scrollableYearDropdown
         />
 
         <label htmlFor="start-date">Start Date</label>
-        <DatePicker
+        <DateInput
           id="start-date"
           selected={startDate}
           onChange={(date) => setStartDate(formatDate(date))}
-          dateFormat="MM/dd/yyyy"
-          showYearDropdown
-          scrollableYearDropdown
         />
 
         <fieldset className="employeeForm__address">
@@ -127,7 +122,7 @@ export const EmployeeForm = () => {
           <input id="zip-code" type="number" name="zipCode" value={formData.zipCode} onChange={handleChange} required />
         </fieldset>
         <label htmlFor="department">Department</label>
-        <DropdownMenu options={departments} onSelect={setSelectedDepartment} />
+        <DropdownMenu id="department" options={departments} onSelect={setSelectedDepartment} />
         <button type="submit" className="employeeForm__validate-btn button">Save</button>
       </form>
       {openModal && <Modal setOpenModal={setOpenModal} />}

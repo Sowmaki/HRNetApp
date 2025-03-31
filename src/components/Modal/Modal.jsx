@@ -31,7 +31,7 @@ export const Modal = ({ setOpenModal }) => {
           {/* Ajoute un bouton pour fermer la modale */}
           <button className="modal__buttons__closeBtn button" onClick={() => setOpenModal(false)}>OK</button>
           {/* Bonus: Ajoute un bouton pour voir la liste des employés */}
-          <button className="modal__buttons__navigateBtn button" onClick={() => navigate('/employee-list')}>View List</button>
+          <button className="modal__buttons__navigateBtn button" onClick={() => navigate('/')}>View List</button>
         </div>
       </div>
     </div>

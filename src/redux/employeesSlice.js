@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import employees from "../mocks/employees_mock.json";
 
+
 const initialState = {
   list: employees,
   query: '',
