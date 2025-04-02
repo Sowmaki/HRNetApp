@@ -20,9 +20,10 @@ export const EmployeeTable = () => {
   const startIndex = (currentPage - 1) * listLength;
   const visibleEmployees = filteredEmployees.slice(startIndex, startIndex + listLength);
 
+  // Animation Colonnes
   const [activeColumn, setActiveColumn] = useState(null)
 
-  const keys = !visibleEmployees.length ? [] : [...Object.keys(visibleEmployees[0]),]
+  const employeeKeys = !visibleEmployees.length ? [] : [...Object.keys(visibleEmployees[0]),]
 
   return (
     <div className="employee-table">
@@ -45,7 +46,7 @@ export const EmployeeTable = () => {
         <thead>
           <tr className='employeeTable__row--header'>
             {
-              keys?.map((employeeKey, index) =>
+              employeeKeys?.map((employeeKey, index) =>
                 <th className='employeeTable__header-cell' key={`${employeeKey}${index}`}>
                   <h3 className='employeeTable__header-cell__title'>{employeeKey.toUpperCase()}</h3>
                   <img

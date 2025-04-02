@@ -5,7 +5,6 @@ export const DropdownMenu = ({ options, onSelect }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
 
-  const toggleMenu = () => setIsOpen((prev) => !prev);
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
     setIsOpen(false);

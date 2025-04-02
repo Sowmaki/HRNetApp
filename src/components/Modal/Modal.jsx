@@ -5,19 +5,21 @@ import "./Modal.scss";
 export const Modal = ({ setOpenModal }) => {
   const navigate = useNavigate()
 
-  // Ferme la modale avec "Échap"
   useEffect(() => {
+    // Ferme la modale avec "Échap"
     const handleKeyDown = (event) => {
       if (event.key === "Escape") {
         setOpenModal(false);
       }
     };
 
-    document.body.style.overflow = "hidden"; // Bloque le scroll arrière-plan
+    // Bloque le scroll arrière-plan quand modale ouverte
+    document.body.style.overflow = "hidden";
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      document.body.style.overflow = "auto"; // Restaure le scroll
+      // Restaure le scroll à la fermeture
+      document.body.style.overflow = "auto";
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [setOpenModal]);
