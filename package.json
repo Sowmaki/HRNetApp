@@ -14,6 +14,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@reduxjs/toolkit": "^2.6.1",
+    "@sowmaki/react-modal": "^1.3.0",
     "react": "^19.0.0",
     "react-data-table-component": "^7.7.0",
     "react-datepicker": "^8.2.1",

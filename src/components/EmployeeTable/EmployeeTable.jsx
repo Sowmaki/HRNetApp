@@ -9,12 +9,43 @@ export const EmployeeTable = () => {
   const dispatch = useDispatch();
   const { list: employees, query, listLength, currentPage } = useSelector((state) => state.employees);
 
-  // Filtrage des employés
-  const filteredEmployees = employees.filter(employee =>
+  // État pour suivre la colonne active et l'ordre de tri
+  const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' });
+
+  // Fonction de tri
+  const sortEmployees = (employeesList, key, direction) => {
+    return [...employeesList].sort((a, b) => {
+      const valueA = a[key];
+      const valueB = b[key];
+
+      if (!valueA || !valueB) return 0; // Éviter les erreurs si valeur absente
+
+      // Détection du type de données
+      const isDate = /\d{2}\/\d{2}\/\d{4}/.test(valueA); // Format MM/DD/YYYY
+      const isNumber = !isNaN(valueA) && !isNaN(valueB);
+
+      if (isDate) {
+        return direction === 'asc'
+          ? new Date(valueB) - new Date(valueA) // Du plus récent au plus ancien
+          : new Date(valueA) - new Date(valueB);
+      }
+
+      if (isNumber) {
+        return direction === 'asc' ? valueA - valueB : valueB - valueA;
+      }
+
+      return direction === 'asc' ? valueA.localeCompare(valueB) : valueB.localeCompare(valueA);
+    });
+  };
+
+  // Appliquer le tri 
+  const sortedEmployees = sortConfig.key ? sortEmployees(employees, sortConfig.key, sortConfig.direction) : employees;
+
+  // Filtrage des employés triés
+  const filteredEmployees = sortedEmployees.filter(employee =>
     employee.firstName.toLowerCase().includes(query.toLowerCase()) ||
     employee.lastName.toLowerCase().includes(query.toLowerCase())
   );
-
   // Pagination
   const totalPages = Math.ceil(filteredEmployees.length / listLength);
   const startIndex = (currentPage - 1) * listLength;
@@ -23,7 +54,17 @@ export const EmployeeTable = () => {
   // Animation Colonnes
   const [activeColumn, setActiveColumn] = useState(null)
 
+  // Definitions des clés pour les colonnes
   const employeeKeys = !visibleEmployees.length ? [] : [...Object.keys(visibleEmployees[0]),]
+
+  // Gestion du clic sur une colonne pour trier
+  const handleSort = (key) => {
+    let direction = 'asc';
+    if (sortConfig.key === key && sortConfig.direction === 'asc') {
+      direction = 'desc';
+    }
+    setSortConfig({ key, direction });
+  };
 
   return (
     <div className="employee-table">
@@ -51,7 +92,7 @@ export const EmployeeTable = () => {
                   <h3 className='employeeTable__header-cell__title'>{employeeKey.toUpperCase()}</h3>
                   <img
                     className={`employeeTable__header-cell__icon ${activeColumn === index ? "rotated" : ""}`}
-                    onClick={() => setActiveColumn(activeColumn === index ? null : index)}
+                    onClick={() => handleSort(employeeKey)}
                     src={faChevronDown}
                   ></img>
                 </th>)

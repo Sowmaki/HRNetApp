@@ -1,3 +1,4 @@
+import { Modal } from "@sowmaki/react-modal";
 import { useEffect, useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import { useDispatch } from "react-redux";
@@ -6,7 +7,8 @@ import { states } from "../../data/states";
 import { addEmployee } from "../../redux/employeesSlice";
 import { DateInput } from "../DateInput/DateInput";
 import { DropdownMenu } from "../DropdownMenu/DropdownMenu";
-import { Modal } from "../Modal/Modal";
+import "../Modal/Modal.scss";
+
 import "./EmployeeForm.scss";
 
 export const EmployeeForm = () => {
