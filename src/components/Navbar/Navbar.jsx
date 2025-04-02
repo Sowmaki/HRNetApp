@@ -10,7 +10,7 @@ export const Navbar = () => {
     <nav className="navbar">
       <h1 className="navbar__title">HRNet</h1>
       <div className="navbar__items">
-        <div className="navbar__item" data-tooltip="Create Employee">
+        <div className="navbar__item" data-tooltip="Employees List">
           <Link to='/' aria-label="go to employee list">
             <img
               src={faListDots}
@@ -18,7 +18,7 @@ export const Navbar = () => {
             />
           </Link>
         </div>
-        <div className="navbar__item" data-tooltip="Employees List">
+        <div className="navbar__item" data-tooltip="Create Employee">
           <Link to='/add' aria-label="go to create employee page" >
             <img
               src={faAdd}

@@ -19,4 +19,3 @@ export function App() {
     </Provider>
   );
 }
-
